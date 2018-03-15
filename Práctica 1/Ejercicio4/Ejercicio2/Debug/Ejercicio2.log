@@ -1,4 +1,7 @@
-﻿  MainOO.cpp
-c:\users\avr-9\desktop\desarrollo de videojuegos\2º\desarrollo de sistemas interactivos\tarea\práctica 1\ejercicio4\ejercicio2\mainoo.cpp(159): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  Ejercicio2.vcxproj -> C:\Users\avr-9\Desktop\Desarrollo de Videojuegos\2º\Desarrollo de Sistemas Interactivos\Tarea\Práctica 1\Ejercicio4\Debug\Ejercicio2.exe
-  Ejercicio2.vcxproj -> C:\Users\avr-9\Desktop\Desarrollo de Videojuegos\2º\Desarrollo de Sistemas Interactivos\Tarea\Práctica 1\Ejercicio4\Debug\Ejercicio2.pdb (Partial PDB)
+﻿  Scene.cpp
+  Modelo.cpp
+  MainOO.cpp
+c:\users\avr-9\desktop\desarrollo de videojuegos\2º\desarrollo de sistemas interactivos\dsi_gdv\práctica 1\ejercicio4\ejercicio2\mainoo.cpp(159): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Generating Code...
+  Ejercicio2.vcxproj -> C:\Users\avr-9\Desktop\Desarrollo de Videojuegos\2º\Desarrollo de Sistemas Interactivos\DSI_GDV\Práctica 1\Ejercicio4\Debug\Ejercicio2.exe
+  Ejercicio2.vcxproj -> C:\Users\avr-9\Desktop\Desarrollo de Videojuegos\2º\Desarrollo de Sistemas Interactivos\DSI_GDV\Práctica 1\Ejercicio4\Debug\Ejercicio2.pdb (Partial PDB)
