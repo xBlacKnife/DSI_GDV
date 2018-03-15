@@ -49,9 +49,7 @@ class MainWindow : public BaseWindow<MainWindow>
 	EditionMode mode = EditionMode::SelectMode;
 
 public:
-	MainWindow() 	{
-		
-	}
+	MainWindow() 	{}
 	PCWSTR  ClassName() const { return L"Circle Window Class"; }
 	LRESULT HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam);
 };
@@ -105,7 +103,7 @@ void MainWindow::OnTime()
 	SYSTEMTIME	time;
 	GetLocalTime(&time);		
 	//Actualizo el tiempo de la escena
-	Escena.Actualizar(time.wHour,time.wMinute, time.wSecond);
+	Escena.Actualizar(time.wHour, time.wMinute, time.wSecond);
 }
 
 void MainWindow::OnLButtonDown(int pixelX, int pixelY, DWORD flags)
@@ -126,7 +124,7 @@ void MainWindow::OnLButtonDown(int pixelX, int pixelY, DWORD flags)
 			mode = EditionMode::DrawMode;
 			PonCursor(EditionMode::DrawMode);
 			Escena.ptMouse = dips;
-			Escena.ActualizaElipse(dips.x, dips.y, 1.0, 1.0);
+			//Escena.ActualizaElipse(dips.x, dips.y, 1.0, 1.0);
 			InvalidateRect(m_hwnd, NULL, FALSE);
 		}
 		break;
@@ -152,6 +150,7 @@ void MainWindow::OnLButtonUp()
 {
 	ReleaseCapture();
 	mode = EditionMode::SelectMode;
+	PonCursor(EditionMode::SelectMode);
 }
 
 void MainWindow::OnRButtonDown(int pixelX, int pixelY, DWORD flags)
@@ -170,12 +169,7 @@ void MainWindow::OnRButtonDown(int pixelX, int pixelY, DWORD flags)
 		cc.Flags = CC_FULLOPEN | CC_RGBINIT;
 		if (ChooseColor(&cc) == TRUE)
 		{
-			//En cc.rgbResult tenemos el color seleccionado
-			//Utilizarlo para configurar nuestra brocha
-			//Es necesario transformarlo al formato de color de D2D
-
-			/*const D2D1_COLOR_F color2 = D2D1::ColorF(cc.rgbResult);
-			hr = Escena.pRenderTarget->CreateSolidColorBrush(color2, &Escena.pBrush2);*/
+			Escena.pBrush2->SetColor(D2D1::ColorF((float)GetRValue(cc.rgbResult) / 255, (float)GetGValue(cc.rgbResult) / 255, (float)GetBValue(cc.rgbResult) / 255, 1.0f));
 		}
 	}
 }
@@ -183,7 +177,6 @@ void MainWindow::OnRButtonDown(int pixelX, int pixelY, DWORD flags)
 void MainWindow::OnRButtonUp()
 {
 	ReleaseCapture();
-	mode = EditionMode::SelectMode;
 }
 
 void MainWindow::OnMouseMove(int pixelX, int pixelY, DWORD flags) {
@@ -201,15 +194,14 @@ void MainWindow::OnMouseMove(int pixelX, int pixelY, DWORD flags) {
 	case EditionMode::SelectMode:
 	{
 		if (Escena.HitTest(Escena.ellipse2, (float)dips.x, (float)dips.y))
-			cursor = IDC_HAND;
+			PonCursor(EditionMode::DragMode);
 		else
-			cursor = IDC_CROSS;
-		hCursor = LoadCursor(NULL, cursor);
-		SetCursor(hCursor);
+			PonCursor(EditionMode::SelectMode);
 		break;
 	}
 	case EditionMode::DrawMode:
 	{
+		PonCursor(EditionMode::DrawMode);
 		Escena.ActualizaElipse(x1, y1, width / 2, height / 2);
 		InvalidateRect(m_hwnd, NULL, FALSE);
 		break;
@@ -242,7 +234,19 @@ void MainWindow::OnKeyDown(WPARAM wParam)
 
 void MainWindow::PonCursor(EditionMode m)
 {
-	
+	LPWSTR cursor = IDC_ARROW;
+	HCURSOR hCursor;
+
+	if (m == EditionMode::SelectMode)
+		cursor = IDC_ARROW;
+	else if (m == EditionMode::DrawMode)
+		cursor = IDC_CROSS;
+	else if (m == EditionMode::DragMode)
+		cursor = IDC_HAND;
+
+	hCursor = LoadCursor(NULL, cursor);
+	SetCursor(hCursor);
+
 }
 
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR, int nCmdShow)

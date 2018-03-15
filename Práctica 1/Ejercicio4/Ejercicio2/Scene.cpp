@@ -33,9 +33,8 @@ void Scene::DrawClockHand(float fHandLength, float fAngle, float fStrokeWidth)
 
 void Scene::DrawEsfera()
 {
-	ellipse = D2D1::Ellipse(D2D1::Point2F(x, y), radio, radio);
-	pRenderTarget->FillEllipse(ellipse, pBrush);
-	pRenderTarget->DrawEllipse(ellipse, pStroke);
+	pRenderTarget->FillEllipse(ellipse2, pBrush2);
+	pRenderTarget->DrawEllipse(ellipse2, pStroke);
 }
 void Scene::DrawReloj()
 {
@@ -43,8 +42,9 @@ void Scene::DrawReloj()
 	//ellipse2.point.y = ry;
 	//ellipse2.radiusX = rr;
 	//ellipse2.radiusY = rr;
-	pRenderTarget->FillEllipse(ellipse2, pBrush2);
-	pRenderTarget->DrawEllipse(ellipse2, pStroke);
+	ellipse = D2D1::Ellipse(D2D1::Point2F(x, y), radio, radio);
+	pRenderTarget->FillEllipse(ellipse, pBrush);
+	pRenderTarget->DrawEllipse(ellipse, pStroke);
 	DrawClockHand(0.6f, fHourAngle, 6);
 	DrawClockHand(0.8f, fMinuteAngle, 4);
 	DrawClockHand(0.9f, fSecondAngle, 2);
@@ -52,7 +52,7 @@ void Scene::DrawReloj()
 void Scene::RenderScene()
 {
 	pRenderTarget->BeginDraw();
-	pRenderTarget->Clear(D2D1::ColorF(D2D1::ColorF::SkyBlue));
+	pRenderTarget->Clear(D2D1::ColorF(D2D1::ColorF::DeepSkyBlue));
 	pRenderTarget->SetTransform(D2D1::Matrix3x2F::Identity());
 	DrawEsfera();
 	pRenderTarget->SetTransform(D2D1::Matrix3x2F::Identity());
@@ -66,11 +66,12 @@ void Scene::RenderScene()
 }
 bool Scene::HitTest(D2D1_ELLIPSE ellipse, float x, float y)
 {
-	if ((x < ellipse.point.x + abs((long)ellipse.radiusX) && x > ellipse.point.x - abs((long)ellipse.radiusX)) &&
-		(y < ellipse.point.y + abs((long)ellipse.radiusY) && x > ellipse.point.y - abs((long)ellipse.radiusY)))
-		return true;
-	else
-		return false;
+	const float a = ellipse.radiusX;
+	const float b = ellipse.radiusY;
+	const float x1 = x - ellipse.point.x;
+	const float y1 = y - ellipse.point.y;
+	const float d = ((x1 * x1) / (a * a)) + ((y1 * y1) / (b * b));
+	return d <= 1.0f;
 }
 void Scene::ActualizaElipse(float x, float y, float width, float height)
 {
@@ -111,7 +112,6 @@ HRESULT Scene::CreateGraphicsResources(HWND m_hwnd,RECT rc)
 			hr = pRenderTarget->CreateSolidColorBrush(color, &pBrush);
 			const D2D1_COLOR_F color1 = D2D1::ColorF(0, 0, 0);
 			hr = pRenderTarget->CreateSolidColorBrush(color1, &pStroke);
-
 			const D2D1_COLOR_F color2 = D2D1::ColorF(1.0f, 0.0f, 0.0f);
 			hr = pRenderTarget->CreateSolidColorBrush(color2, &pBrush2);
 			if (SUCCEEDED(hr))
@@ -128,4 +128,5 @@ void Scene::DiscardGraphicsResources()
 	SafeRelease(&pRenderTarget);
 	SafeRelease(&pBrush);
 	SafeRelease(&pStroke);
+	SafeRelease(&pBrush2);
 }
