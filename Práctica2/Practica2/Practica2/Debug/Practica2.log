@@ -1,0 +1,4 @@
+﻿  BaseHID.cpp
+c:\users\avr-9\desktop\desarrollo de videojuegos\2º\desarrollo de sistemas interactivos\dsi_gdv\práctica2\practica2\practica2\practica2\basehid.h(50): error C3646: 'Ro': unknown override specifier
+c:\users\avr-9\desktop\desarrollo de videojuegos\2º\desarrollo de sistemas interactivos\dsi_gdv\práctica2\practica2\practica2\practica2\basehid.h(50): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\avr-9\desktop\desarrollo de videojuegos\2º\desarrollo de sistemas interactivos\dsi_gdv\práctica2\practica2\practica2\practica2\basehid.cpp(16): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
