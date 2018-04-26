@@ -1,0 +1,27 @@
+﻿  Application.cpp
+Application.cpp(52): warning C4244: '+=': conversion from 'float' to 'LONG', possible loss of data
+Application.cpp(53): warning C4244: '-=': conversion from 'float' to 'LONG', possible loss of data
+Application.cpp(63): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+Application.cpp(64): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+Application.cpp(121): warning C4305: 'argument': truncation from 'double' to 'float'
+Application.cpp(129): warning C4305: 'argument': truncation from 'double' to 'float'
+Application.cpp(46): warning C4101: 'pt0': unreferenced local variable
+  BaseHID.cpp
+BaseHID.cpp(14): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+BaseHID.cpp(53): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
+BaseHID.cpp(58): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
+  HIDXBox.cpp
+HIDXBox.cpp(19): warning C4553: '==': operator has no effect; did you intend '='?
+HIDXBox.cpp(39): warning C4244: '-=': conversion from 'float' to 'SHORT', possible loss of data
+HIDXBox.cpp(41): warning C4244: '+=': conversion from 'float' to 'SHORT', possible loss of data
+HIDXBox.cpp(46): warning C4244: '-=': conversion from 'float' to 'SHORT', possible loss of data
+HIDXBox.cpp(48): warning C4244: '+=': conversion from 'float' to 'SHORT', possible loss of data
+HIDXBox.cpp(53): warning C4244: '-=': conversion from 'float' to 'SHORT', possible loss of data
+HIDXBox.cpp(55): warning C4244: '+=': conversion from 'float' to 'SHORT', possible loss of data
+HIDXBox.cpp(60): warning C4244: '-=': conversion from 'float' to 'SHORT', possible loss of data
+HIDXBox.cpp(62): warning C4244: '+=': conversion from 'float' to 'SHORT', possible loss of data
+  Generating code
+  All 25 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  Practica2.vcxproj -> C:\Users\avr-9\Desktop\Desarrollo de Videojuegos\2º\Desarrollo de Sistemas Interactivos\DSI_GDV\Práctica2\Practica2\Release\Practica2.exe
+  Practica2.vcxproj -> C:\Users\avr-9\Desktop\Desarrollo de Videojuegos\2º\Desarrollo de Sistemas Interactivos\DSI_GDV\Práctica2\Practica2\Release\Practica2.pdb (Full PDB)

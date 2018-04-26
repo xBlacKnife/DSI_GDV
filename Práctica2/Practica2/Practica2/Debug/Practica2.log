@@ -1,4 +1,10 @@
-﻿  BaseHID.cpp
-c:\users\avr-9\desktop\desarrollo de videojuegos\2º\desarrollo de sistemas interactivos\dsi_gdv\práctica2\practica2\practica2\practica2\basehid.h(50): error C3646: 'Ro': unknown override specifier
-c:\users\avr-9\desktop\desarrollo de videojuegos\2º\desarrollo de sistemas interactivos\dsi_gdv\práctica2\practica2\practica2\practica2\basehid.h(50): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\avr-9\desktop\desarrollo de videojuegos\2º\desarrollo de sistemas interactivos\dsi_gdv\práctica2\practica2\practica2\practica2\basehid.cpp(16): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+﻿  Application.cpp
+c:\users\avr-9\desktop\desarrollo de videojuegos\2º\desarrollo de sistemas interactivos\dsi_gdv\práctica2\practica2\practica2\application.cpp(52): warning C4244: '+=': conversion from 'float' to 'LONG', possible loss of data
+c:\users\avr-9\desktop\desarrollo de videojuegos\2º\desarrollo de sistemas interactivos\dsi_gdv\práctica2\practica2\practica2\application.cpp(53): warning C4244: '-=': conversion from 'float' to 'LONG', possible loss of data
+c:\users\avr-9\desktop\desarrollo de videojuegos\2º\desarrollo de sistemas interactivos\dsi_gdv\práctica2\practica2\practica2\application.cpp(60): warning C4244: '+=': conversion from 'float' to 'LONG', possible loss of data
+c:\users\avr-9\desktop\desarrollo de videojuegos\2º\desarrollo de sistemas interactivos\dsi_gdv\práctica2\practica2\practica2\application.cpp(61): warning C4244: '-=': conversion from 'float' to 'LONG', possible loss of data
+c:\users\avr-9\desktop\desarrollo de videojuegos\2º\desarrollo de sistemas interactivos\dsi_gdv\práctica2\practica2\practica2\application.cpp(141): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\avr-9\desktop\desarrollo de videojuegos\2º\desarrollo de sistemas interactivos\dsi_gdv\práctica2\practica2\practica2\application.cpp(149): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\avr-9\desktop\desarrollo de videojuegos\2º\desarrollo de sistemas interactivos\dsi_gdv\práctica2\practica2\practica2\application.cpp(46): warning C4101: 'pt0': unreferenced local variable
+  Practica2.vcxproj -> C:\Users\avr-9\Desktop\Desarrollo de Videojuegos\2º\Desarrollo de Sistemas Interactivos\DSI_GDV\Práctica2\Practica2\Debug\Practica2.exe
+  Practica2.vcxproj -> C:\Users\avr-9\Desktop\Desarrollo de Videojuegos\2º\Desarrollo de Sistemas Interactivos\DSI_GDV\Práctica2\Practica2\Debug\Practica2.pdb (Partial PDB)

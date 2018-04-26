@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{13914A91-DE2F-46C6-81FA-712CEB267EB8}</ProjectGuid>
+    <ProjectGuid>{FA5A9AB0-DB64-433A-8850-ED4805857377}</ProjectGuid>
     <RootNamespace>Practica2</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -110,10 +110,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="BaseHID.h" />
+    <ClCompile Include="Application.cpp" />
+    <ClCompile Include="BaseHID.cpp" />
+    <ClCompile Include="HIDXBox.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BaseHID.cpp" />
+    <ClInclude Include="BaseHID.h" />
+    <ClInclude Include="HIDXBox.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,14 +1,20 @@
+#pragma once
 #include <Windows.h>
 
 enum EstadosRotacion { POS_POS, POS_NEG, NEG_POS, NEG_NEG };
 
-#pragma once
 class BaseHID
 {
 public:
+
+	BaseHID();
+	BaseHID(float t); //Constructor que recoge el periodo de muestreo
+	~BaseHID();
+
 	bool bConected; //Mando Conectado
 					//Gets & Sets
 	bool gBU(WORD bit); //Estado del Boton codificado en bit
+	bool gBD(WORD bit); //Estado del Boton codificado en bit
 	float gLT(); //Left Triger [0,1]
 	float gRT(); //Right Triger [0,1]
 	float gLJX(); //LeftJoyX [-1,1]
@@ -26,10 +32,6 @@ public:
 	bool BU(WORD Bit); //Boton Up codificado en Bit
 	bool GRLJ(); //Gesto de Rotación del LeftJoy
 
-
-	BaseHID();
-	BaseHID(float t); //Constructor que recoge el periodo de muestreo
-	~BaseHID();
 	void Actualiza(); //Actualiza Mando2HID y HID2Mando.
 
 protected:
